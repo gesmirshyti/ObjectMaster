@@ -23,7 +23,6 @@ const pokémon = Object.freeze([
         { "id": 146, "name": "Moltres",    "types": ["fire", "flying"] },
         { "id": 148, "name": "Dragonair",  "types": ["dragon"] }
     ]);
-
     const pokémonDivisibleBy3 = pokémon.filter(pokemon => pokemon.id % 3 === 0);
     console.log(pokémonDivisibleBy3);
 
@@ -38,3 +37,20 @@ const pokémon = Object.freeze([
 
     const pokémonNamesWithIdGreaterThan99 = pokémon
     .filter(pokemon => pokemon.id > 99)
+    .map(pokemon => pokemon.name);
+    console.log(pokémonNamesWithIdGreaterThan99);   
+
+
+    const pokémonNamesWithOnlyPoison = pokémon
+    .filter(pokemon => pokemon.types.length === 1 && pokemon.types.includes("poison"))
+    .map(pokemon => pokemon.name);
+    console.log(pokémonNamesWithOnlyPoison);
+
+    const firstTypeWithSecondTypeFlying = pokémon
+    .filter(pokemon => pokemon.types.length === 2 && pokemon.types[1] === "flying")
+    .map(pokemon => pokemon.types[0]);
+    console.log(firstTypeWithSecondTypeFlying);
+
+    const normalTypeCount = pokémon.filter(pokemon => pokemon.types.includes("normal")).length;
+
+    console.log(normalTypeCount);
